@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import List from './List.jsx';
 import {API_KEY} from '../../../config.js';
+import $ from 'jquery';
+// const $ = require('jquery');
 
 class App extends React.Component {
   constructor(props) {
@@ -89,14 +91,18 @@ class App extends React.Component {
     document.getElementById('form').reset();
   }
 
+
+
+
   render () {
     return (
     <div className='container'>
       <form id='form'>
       <input type='text' onChange={this.handleChange} placeholder='Enter last.fm username' autoFocus/>
-      <button onClick={this.handleSubmit}>Submit</button>
+      <input type='submit' value='find' onClick={this.handleSubmit} />
       </form>
-      {(this.state.userData.length) ? <List users={this.state.userData} tracks={this.state.userTracks} weekly={this.state.weeklyTracks} /> : ''}
+      {(this.state.userData.length) ? <List users={this.state.userData} tracks={this.state.userTracks} weekly={this.state.weeklyTracks} /> : 
+      <img src='https://cdn4.iconfinder.com/data/icons/devine_icons/Black/PNG/Folder%20and%20Places/CD-Music.png' />}
     </div>)
   }
 }

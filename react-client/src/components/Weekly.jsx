@@ -2,7 +2,7 @@ import React from 'react';
 
 const Weekly = ({week}) => (
   <div className='Weekly'>
-  <h3 className='weekly-header'>Top tracks this week</h3>
+  <h3 className='weekly-header'>Top Tracks This Week</h3>
     <ul>
       {week.map((item, i) => (
         <div>
