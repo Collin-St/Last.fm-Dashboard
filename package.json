@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "heroku-postbuild": "webpack -d --watch",
+    "build": "webpack -d --watch",
+    "heroku-postbuild": "webpack -p",
     "start": "nodemon server/index.js"
   },
   "author": "Collin-St",
