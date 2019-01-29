@@ -36,3 +36,20 @@ body {
   float: right;
   padding: 10px;
 }
+
+.Weekly {
+  color: white;
+  display: inline;
+  line-height: 90px;
+  text-align: left;
+}
+
+.weekly-header {
+  text-align: center;
+}
+
+.weekly-album {
+vertical-align: middle;
+float: right;
+padding: 10px;
+}

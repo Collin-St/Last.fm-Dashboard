@@ -9,12 +9,15 @@ class App extends React.Component {
     this.state = { 
       userData: [],
       userTracks: [],
+      weeklyTracks: [],
       input: ''
     }
     this.users = [];
     this.handleChange= this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.getUserData = this.getUserData.bind(this);
+    // this.getUserData = this.getUserData.bind(this);
+    // this.getRecentTracks = this.getRecentTracks.bind(this);
+    // this.getWeekly = this.getWeekly.bind(this);
   }
 
   componentDidMount() {
@@ -49,6 +52,20 @@ class App extends React.Component {
     }
   }
 
+  getWeekly(input) {
+    if (input) {
+      axios.get(`http://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=${input}&api_key=${API_KEY}&format=json`)
+      .then(data => {
+           this.setState({
+           weeklyTracks: [...this.state.weeklyTracks, data.data]
+          });
+       })
+       .catch(err => {
+         console.log(err);
+       })
+    }
+  }
+
   handleChange(e) {
     this.setState({
       input: e.target.value
@@ -57,21 +74,29 @@ class App extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    this.setState({
+      userData: [],
+      userTracks: [],
+      weeklyTracks: []
+    })
     if (!this.users.includes(this.state.input)) {
       this.users.push(this.state.input);
       this.getUserData(this.state.input);
       this.getRecentTracks(this.state.input);
+      this.getWeekly(this.state.input)
     }
+    this.users = [];
+    document.getElementById('form').reset();
   }
 
   render () {
     return (
     <div className='container'>
-      <form>
+      <form id='form'>
       <input type='text' onChange={this.handleChange} placeholder='Enter last.fm username' autoFocus/>
       <button onClick={this.handleSubmit}>Submit</button>
       </form>
-      {(this.state.userData.length) ? <List users={this.state.userData} tracks={this.state.userTracks} /> : ''}
+      {(this.state.userData.length) ? <List users={this.state.userData} tracks={this.state.userTracks} weekly={this.state.weeklyTracks} /> : ''}
     </div>)
   }
 }
