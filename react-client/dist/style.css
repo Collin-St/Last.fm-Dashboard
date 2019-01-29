@@ -1,0 +1,38 @@
+head {
+  padding: 20px;
+}
+
+body {
+  background-color: #2e3131;
+  text-align: center;
+}
+
+.List {
+  display: inline-block;
+  background-color: #24252a;
+  width: 720px;
+  border: 5px white;
+  padding: 25px;
+  margin: 25px;
+}
+
+.ListUser {
+  color: white;
+}
+
+.ListTracks {
+  color: white;
+  display: inline;
+  line-height: 90px;
+  text-align: left;
+}
+
+.tracks-header {
+  text-align: center;
+}
+
+.album {
+  vertical-align: middle;
+  float: right;
+  padding: 10px;
+}
