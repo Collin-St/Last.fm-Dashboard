@@ -8,6 +8,7 @@ const ListTracks = ({ten}) => (
         <div>
         <a href={item.url}><img className='album' src={Object.values(item.image[1])[1]}/></a>
         {/* {console.log(Object.values(item.image[1])[1])} */}
+        {/* <li className='now'>Now playing: <b>{Object.values(item.artist)[1]}</b> - <i>"{item.name}"</i></li> */}
         <li className='tracks' key={i}>
         <b>{Object.values(item.artist)[1]}</b> - "{item.name}" - <i>played {(Object.values(item.date)[1])}</i>
         {/* {console.log(item.name)} */}

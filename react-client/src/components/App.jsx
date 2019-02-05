@@ -2,8 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import List from './List.jsx';
 import {API_KEY} from '../../../config.js';
-import $ from 'jquery';
-// const $ = require('jquery');
+// import $ from 'jquery';
 
 class App extends React.Component {
   constructor(props) {
@@ -90,9 +89,6 @@ class App extends React.Component {
     this.users = [];
     document.getElementById('form').reset();
   }
-
-
-
 
   render () {
     return (
